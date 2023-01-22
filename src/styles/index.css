@@ -1,4 +1,10 @@
 
-/* .todo-list{
-    width: 30%;
-} */
+input:focus {
+    outline: none;
+}
+.invalid-input{
+    border: 2px solid red;
+}
+.valid-item{
+    border: 2px solid lightgrey;
+}
