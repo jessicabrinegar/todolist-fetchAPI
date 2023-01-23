@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useMemo} from "react";
+import React, {useState, useEffect, useMemo, useRef} from "react";
 import ListItem from "./ListItem.jsx"
 
+// How to access the prop within <ListItem /> (an id, so i can remove it when the X button is clicked)
 
 export default function Todos () {
     const [input, setInput] = useState('');
@@ -10,32 +11,31 @@ export default function Todos () {
     const handleAddTodo = (e) => {
         e.preventDefault()
         if (input != ''){
-            setRedBorder(false);
-            setListItem(listItems.concat(<ListItem key={listItems.length} text={input} remove={handleRemoveTodo}/>));
+            setValidInput(true);
+            setListItem(listItems.concat(<ListItem key={listItems.length + 1} text={input} remove={handleRemoveTodo} />));
             setInput('');
-            console.log(listItems.length);
+            console.log(listItems);
         }
         else{
             setValidInput(false);
         }
     }
 
-    const handleRemoveTodo = () => {
+    const handleRemoveTodo = ({id}) => {
         console.log('removed');
+        // setListItem(listItems.splice(props.id,1, ''));
     }
 
     return (
-        <div className="border w-75">
+        <div className="todo-container w-75">
             <form className="d-flex">
-                <input className={`px-3 w-100 ${validInput ? 'valid-item' : 'invalid-input'}`} 
+                <input className={`ps-3 w-100 ${validInput ? 'valid-input' : 'invalid-input'}`} 
                 type="text" autoFocus 
                 placeholder={validInput ? 'What needs to be done?' : 'Type a todo!'} 
                 onChange={e => setInput(e.target.value)} 
                 value={input}
                 />
-                <button type="submit" onClick={handleAddTodo}>
-                    Add
-                </button>
+                <button type="submit" onClick={handleAddTodo}>Add</button>
             </form>
             <ul className="list-group">
                 {listItems}

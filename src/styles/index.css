@@ -2,9 +2,56 @@
 input:focus {
     outline: none;
 }
-.invalid-input{
-    border: 2px solid red;
-}
-.valid-item{
+.todo-container{
     border: 2px solid lightgrey;
 }
+.todo-item{
+    border: 0px;
+    color: grey;
+}
+button[type="submit"] {
+    border: 0px;
+    background: rgb(253, 216, 222);
+    padding: 0.5rem 1rem;
+    color: grey;
+    transition: background 250ms ease-in-out, 
+                transform 150ms ease;
+  }
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+    background: pink;
+}
+button[type="submit"]:active {
+    transform: scale(0.99);
+}
+.invalid-input{
+    border: 2px solid pink;
+}
+.valid-input{
+    border: 0px;
+}
+.delete-btn{
+    visibility:hidden;
+    border:0px;
+    padding-right:1.5rem;
+    color:pink;
+}
+.delete-btn:hover{
+    visibility:visible;
+}
+.todo-item:hover + .delete-btn{
+    visibility:visible;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(212, 208, 208);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: rgb(212, 208, 208);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(212, 208, 208);
+  }
