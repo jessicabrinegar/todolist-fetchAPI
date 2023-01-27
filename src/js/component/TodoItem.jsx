@@ -10,7 +10,7 @@ export default function Todo ({text, index, handleRemoveTodo}) {
 
             <li className="todo-item list-group-item flex-fill text-start">{text}</li>
             
-            {showButton == true && <button className="delete-btn" onClick={() => handleRemoveTodo(index)}>X</button>}
+            {showButton && <button className="delete-btn" onClick={() => handleRemoveTodo(index)}>X</button>}
 
         </div>
     )
