@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Todo from "./TodoItem.jsx"
 
 
@@ -21,6 +21,10 @@ export default function TodoApp () {
         let newList = todos.filter((item, i) => i !== index)
         setTodos(newList);
     }
+    let footerText;
+    if (todos.length == 1) footerText = `${todos.length} task left`;
+    else if (todos.length == 0) footerText =  'No tasks, add a task';
+    else footerText = `${todos.length} tasks left`;
 
     return (
         <div className="todo-container w-75 d-flex flex-column">
@@ -43,7 +47,7 @@ export default function TodoApp () {
             </ul>
             <div className="d-flex flex-row w-100">
                 <li className="list-group-item flex-fill text-start" id="count">
-                    {todos.length == 1 ? `${todos.length} item left` : `${todos.length} items left`}
+                    {footerText}
                 </li>
             </div>
         </div>
