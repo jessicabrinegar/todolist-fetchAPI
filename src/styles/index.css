@@ -57,6 +57,7 @@ button[type="submit"]:active {
     padding-right:1.5rem;
     color:pink;
     z-index:1;
+    background-color: transparent;
 }
 #count{
     padding-left: 0.5rem;
