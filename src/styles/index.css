@@ -46,6 +46,12 @@ button[type="submit"]:focus {
 button[type="submit"]:active {
     transform: scale(0.99);
 }
+#clear-todos{
+    border: 0px;
+    background: rgb(253, 231, 235);
+    font-size: x-small;
+    color:rgb(201, 199, 199);
+}
 .invalid-input{
     border: 2px solid pink;
 }
@@ -61,6 +67,7 @@ button[type="submit"]:active {
 }
 #count{
     padding-left: 0.5rem;
+    padding-bottom:0.5rem;
     font-size: x-small;
     color:rgb(201, 199, 199);
     margin:0px;
